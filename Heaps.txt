@@ -1,5 +1,8 @@
 Using Heaps to find the Kth Smallest element / K Smallest elements
 
+The Approach is similar for the largest elements as well.
+Just use a min heap instead of a max heap and reverse the conditional checks,
+
 Given : [7, 10, 4, 4, 3, 20, 15, 10, 6]
 
 Sorted : [3, 4, 4, 6, 7, 10, 10, 15, 20]
@@ -20,7 +23,7 @@ curr = 6. pop=7 insert=6 [6, 3, 4, 4] root=6
 ==> Answer: 6
 
 
-Suppose you have to ignore the duplicates while finding the Kth Smallest
+Suppose you have to ignore the duplicates while finding the Kth Smallest / K smallest elements
 
 Given : [7, 10, 4, 4, 3, 20, 15, 10, 6]
 
