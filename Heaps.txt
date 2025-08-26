@@ -1,0 +1,45 @@
+Using Heaps to find the Kth Smallest element / K Smallest elements
+
+Given : [7, 10, 4, 4, 3, 20, 15, 10, 6]
+
+Sorted : [3, 4, 4, 6, 7, 10, 10, 15, 20]
+
+Finding the Kth smallest; K = 4
+
+Max Heap: size 4
+curr = 7. [7] root=7
+curr = 10. [7, 10] root=10
+curr = 4. [7, 10, 4] root=10
+curr = 4. [7, 10, 4, 4] root=10
+curr = 3. pop=10 insert=3 [7, 3, 4, 4] root=7
+curr = 20. curr >= root => Ignore  [7, 3, 4, 4] root=7
+curr = 15.  curr >= root => Ignore  [7, 3, 4, 4] root=7
+curr = 10.  curr >= root => Ignore  [7, 3, 4, 4] root=7
+curr = 6. pop=7 insert=6 [6, 3, 4, 4] root=6
+
+==> Answer: 6
+
+
+Suppose you have to ignore the duplicates while finding the Kth Smallest
+
+Given : [7, 10, 4, 4, 3, 20, 15, 10, 6]
+
+Sorted (Ignored Duplicates) : [3, 4, 6, 7, 10, 15, 20]
+
+Finding the Kth smallest distinct; K = 4
+
+Take a set along with a heap.
+
+Max Heap: size 4
+curr = 7. [7] root=7 ; set = [7]
+curr = 10. [7, 10] root=10 ; set = [7, 10]
+curr = 4. [7, 10, 4] root=10; set = [7, 10, 4]
+curr = 4. Do not push 4 to the heap; already in the set. [7, 10, 4] root=10 ; set = [7, 10, 4]
+curr = 3. insert=3 [7, 10, 3, 4] root=10; set = [7, 10, 4, 3]
+curr = 20. curr >= root => Ignore  [7, 10, 3, 4] root=7; set = [7, 10, 4, 3, 20]
+curr = 15.  curr >= root => Ignore  [7, 10, 3, 4] root=7; set = [7, 10, 4, 3, 20, 15]
+curr = 10.  curr >= root => Ignore  [7, 10, 3, 4] root=7; set = [7, 10, 4, 3, 20, 15, 10]
+curr = 6; pop=10 insert=6 [7, 6, 3, 4] root=7; set = [7, 10, 4, 3, 20, 15, 10, 6]
+
+==> Answer: 7
+
